@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('company.index');
+//Route::get('/', function () {
+//    return view('authenticate.login');
+//});
+//
+//Auth::routes();
+
+Route::get('/', [App\Http\Controllers\LoginController::class, 'login'])->name('login');
+Route::post('/postLogin', [App\Http\Controllers\LoginController::class, 'postLogin'])->name('processLogin');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'postLogin'])->name('processLogin');
+
+Route::get('/dashboard', function () {
+    return view('dashboard.admin');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
