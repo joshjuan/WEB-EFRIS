@@ -11,6 +11,7 @@ class LoginController extends Controller
         return view('authenticate.login');
     }
 
+    ######API LOGIN #########
     public function postLogin(Request $request){
 
         $BASE_URL = 'https://api.webefris.co.ug/api/v1/';
