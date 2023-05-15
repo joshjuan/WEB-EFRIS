@@ -35,4 +35,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function delete()
+    {
+        return view('home');
+    }
 }
