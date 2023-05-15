@@ -49,8 +49,6 @@ class LoginController extends Controller
 
           $response =  json_decode($result);
 
-          return $response->user;
-
          if ($response->user->isActive == 1){
 
              Session::put('token',$response->token);
