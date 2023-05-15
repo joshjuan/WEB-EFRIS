@@ -47,9 +47,7 @@ class LoginController extends Controller
 
         }
 
-          $response =  json_decode($result);
-
-          return $response->user;
+        $response =  json_decode($result);
 
          if ($response->user->isActive == 1){
 

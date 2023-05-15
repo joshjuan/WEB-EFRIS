@@ -44,6 +44,6 @@
   // Side Bar Area Js Ends
 
   // Nice Select Active js
-  // $(".select").niceSelect();
+  $(".list").niceSelect();
   //  Nice Select Ends
 })(jQuery);

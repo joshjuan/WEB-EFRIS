@@ -29,6 +29,8 @@
     <link href="{{ asset('assets/admin/css/jquery.tagit.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('assets/admin/css/bootstrap-coloroicker.css') }}" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
     <!-- Main Css -->
 
     <link href="{{ asset('assets/admin/css/style.css') }}" rel="stylesheet" type="text/css" />
@@ -179,6 +181,8 @@
 
             <!-- Dashboard Core -->
             <script src="{{ asset('assets/admin/js/vendors/jquery-1.12.4.min.js') }}"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
             <script src="{{ asset('assets/admin/js/vendors/vue.js') }}"></script>
             <script src="{{ asset('assets/admin/js/vendors/bootstrap.min.js') }}"></script>
 

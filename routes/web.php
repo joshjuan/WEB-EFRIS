@@ -26,3 +26,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'postLogin'])->
 Route::get('/dashboard', function () {
     return view('dashboard.admin');
 });
+
+//Route for Package
+Route::group(['prefix' => 'efris/packages'], function () {
+    Route::get('view', [App\Http\Controllers\PackageController::class, 'index']);
+    Route::get('depreciation/{depreciation}/show', 'DepreciationController@show');
+
+    //Route for asset
+    Route::get('assets/view','DepreciationController@assetIndex');
+    Route::get('/assets/{asset}/add_number','DepreciationController@assetCreate');
+    Route::post('/assets/{asset}/store','DepreciationController@assetStore');
+    Route::get('/assets/{asset}/show','DepreciationController@assetShow');
+});
