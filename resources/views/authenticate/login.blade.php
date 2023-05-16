@@ -28,13 +28,13 @@
                             @csrf
                             <div class="form-input">
                                 <input type="email" name="email" class="User Name"
-                                       placeholder="Type Email Address" value="admin@gmail.com" required=""
+                                       placeholder="Type Email Address" value="alphaCoder@gmail.com" required=""
                                        autofocus>
                                 <i class="icofont-user-alt-5"></i>
                             </div>
                             <div class="form-input">
                                 <input type="password" name="password" class="Password" placeholder="Type Password"
-                                       required="" value="1234">
+                                       required="" value="WebDev@2020">
                                 <i class="icofont-ui-password"></i>
                             </div>
                             <div class="form-forgot-pass">

@@ -28,13 +28,15 @@ Route::get('/dashboard', function () {
 });
 
 //Route for Package
-Route::group(['prefix' => 'efris/packages'], function () {
-    Route::get('view', [App\Http\Controllers\PackageController::class, 'index']);
-    Route::get('depreciation/{depreciation}/show', 'DepreciationController@show');
+Route::group(['prefix' => 'efris/packages-type'], function () {
+    Route::get('view', [App\Http\Controllers\PackageTypeController::class, 'index']);
+    Route::post('store',[App\Http\Controllers\PackageTypeController::class, 'store']);
 
-    //Route for asset
-    Route::get('assets/view','DepreciationController@assetIndex');
-    Route::get('/assets/{asset}/add_number','DepreciationController@assetCreate');
-    Route::post('/assets/{asset}/store','DepreciationController@assetStore');
-    Route::get('/assets/{asset}/show','DepreciationController@assetShow');
+});
+
+//Route for Package
+Route::group(['prefix' => 'efris/package'], function () {
+    Route::get('view', [App\Http\Controllers\PackageController::class, 'index']);
+    Route::get('create', [App\Http\Controllers\PackageController::class, 'create']);
+    Route::post('store',[App\Http\Controllers\PackageController::class, 'store']);
 });

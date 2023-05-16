@@ -51,15 +51,17 @@
                                 </div>
                                 <div class="col-sm-4">
                                     <div id="geniustable_filter" class="dataTables_filter">
-                                        <label>Search:<input type="search"
-                                                             class="form-control form-control-sm" placeholder=""
-                                                             aria-controls="geniustable"></label>
+                                        <label>Search:<input type="search" class="form-control form-control-sm"
+                                                             placeholder=""
+                                                             aria-controls="geniustable">
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-sm-4 table-contents"><a class="add-btn"
-                                                                        href="https://product.geniusocean.com/kingcommerce/kingcommerce/admin/products/types"><i
-                                                class="fas fa-plus"></i> <span class="remove-mobile">Add
-                                                            New Product<span></span></span></a></div>
+                                <div class="col-sm-4 table-contents">
+                                    <a class="add-btn"  href="{{ url('efris/package/create') }}">
+                                        <i class="fas fa-plus"></i><span class="remove-mobile">Add New Package</span>
+                                    </a>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">
@@ -69,9 +71,14 @@
                                            aria-describedby="geniustable_info" style="width: 100%;">
                                         <thead>
                                         <tr>
-                                            <th style="width: 63px;">#</th>
-                                            <th style="width: 63px;">Package Name</th>
-                                            <th style="width: 63px;">CreatedBy</th>
+                                            <th style="width: 20px;">#</th>
+                                            <th style="width: 60px;">Package Name</th>
+                                            <th style="width: 60px;">Type</th>
+                                            <th style="width: 63px;">Price</th>
+                                            <th style="width: 63px;">Renewal Price</th>
+                                            <th style="width: 60px;">No of Users</th>
+                                            <th style="width: 60px;">No of Branches</th>
+                                            <th style="width: 63px;">Created By</th>
                                             <th style="width: 63px;">Action</th>
                                         </tr>
                                         </thead>
@@ -80,19 +87,27 @@
                                             <tr>
                                                 <td>{{ $index + 1 }}</td>
                                                 <td>{{ $key['name'] }}</td>
+                                                <td>{{ $key['packageTypeName'] }}</td>
+                                                <td>{{ $key['price'] }}</td>
+                                                <td>{{ $key['renewalPrice'] }}</td>
+                                                <td>{{ $key['numberOfUsers'] }}</td>
+                                                <td>{{ $key['numberOfBranches'] }}</td>
                                                 <td>{{ $key['createdByName'] }}</td>
                                                 <td>
                                                     <a class="add-btn"
                                                        href="https://product.geniusocean.com/kingcommerce/kingcommerce/admin/products/types"><i
-                                                                class="fas fa-eye"></i> <span class="remove-mobile"><span></span></span></a>
+                                                                class="fas fa-eye"></i> <span
+                                                                class="remove-mobile"><span></span></span></a>
 
                                                     <a class="add-btn"
                                                        href="https://product.geniusocean.com/kingcommerce/kingcommerce/admin/products/types"><i
-                                                                class="fas fa-pencil-alt"></i> <span class="remove-mobile"><span></span></span></a>
+                                                                class="fas fa-pencil-alt"></i> <span
+                                                                class="remove-mobile"><span></span></span></a>
 
                                                     <a class="add-btn"
                                                        href="https://product.geniusocean.com/kingcommerce/kingcommerce/admin/products/types"><i
-                                                                class="fas fa-trash"></i> <span class="remove-mobile"><span></span></span></a>
+                                                                class="fas fa-trash"></i> <span
+                                                                class="remove-mobile"><span></span></span></a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -106,7 +121,50 @@
             </div>
         </div>
 
-
         <!-- Main Content Area End -->
+        <div class="modal fade" id="setgallery" tabindex="-1" role="dialog" aria-labelledby="setgallery"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">Package</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <form action="{{ url('efris/packages-type/store') }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="top-area">
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label for="mobile_number">Package Name<span
+                                                        style="color: red;">*</span></label>
+                                            <input type="text" class="input-field" placeholder="Package Name"
+                                                   name="package"
+                                                   required="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 text-right">
+                                <div>
+                                    <button
+                                            style="background: #1f224f; width: 160px; height: 40px; color: #fff; font-size: 14px; border: 0px; margin-top: 15px;"
+                                            type="submit">Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myModal').modal('show');
+        })
+    </script>
 @endsection

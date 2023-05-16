@@ -21,17 +21,17 @@
         </li>
         <li>
             <a href="#menu2" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-                <i class="icofont-cart"></i>Packages
+                <i class="icofont-cart"></i>Packages Types
             </a>
             <ul class="collapse list-unstyled" id="menu2" data-parent="#accordion">
                 <li>
-                    <a href="{{ url('efris/packages/view') }}"><span>Package
+                    <a href="{{ url('efris/packages-type/view') }}"><span>Package
                             Types
                         </span></a>
                 </li>
                 <li>
-                    <a href="https://product.geniusocean.com/kingcommerce/kingcommerce/admin/products"><span>
-                            Products</span></a>
+                    <a href="{{ url('efris/package/view') }}"><span>
+                            Packages</span></a>
                 </li>
             </ul>
         </li>
